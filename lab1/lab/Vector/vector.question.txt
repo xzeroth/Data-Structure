@@ -1,0 +1,7 @@
+When removing #include<iostream> from test file, there was no error. However removing from header file cause an error.
+
+Same with removing using namespace std. Removing from test file didnt cause any error but it did on head file.
+
+So I am guessing if something is declared in header file and header file is called. I do not have to re declare it on the test file.
+
+Q. Is this mean I can declare everything in header file and not in test file?

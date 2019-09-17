@@ -1,0 +1,9 @@
+/* Name : Gun Ho Park
+   email ID : gp3dz@virginia.edu
+   Date : 09/05/2019
+   File : postlab1.question.txt
+*/
+
+Q. What is Java equivalent of C++ template class?
+
+Q. Will the program run if all the methods in header files are transfer over to regular .cpp file?

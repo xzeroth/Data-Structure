@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+
+//a ^ b calculate and return
+
+int xton(int a, int b){
+
+  int ans = a;
+  if( b > 0 ){
+	  ans = ans * xton( a , b - 1);
+  }else if ( b == 0 ){
+	  return 1 ;
+  }
+  return ans;
+}
+
+int main(){
+
+  int x, y;
+
+  do{
+  	cout << "Type in non-negative integer for base." << endl;
+  	cin >> x;
+  }while( x < 0 );
+  
+  do{
+  	cout << "Type in non-negative integer for exponent." << endl;
+  	cin >> y;
+  }while( y < 0 );
+
+  int ans = xton(x,y);
+    
+  cout << x << " ^ " << y << " = " << ans << endl;
+
+  return 0;
+}

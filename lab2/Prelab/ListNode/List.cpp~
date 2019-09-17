@@ -1,0 +1,49 @@
+#include <iostream>
+#include <string>
+#include <ctype.h>
+#include <stdlib.h>
+
+#include "List.h"
+#include "ListNode.h"
+#include "ListItr.h"
+
+using namespace std;
+
+List::List(){
+  
+
+}
+List::List(const List& source){
+
+}
+List::~List(){
+
+}
+//List& operator=(const List& source);
+bool List::isEmpty() const{
+
+}
+void List::makeEmpty(){
+
+}
+ListItr List::Last(){
+
+}
+void List::insertAfter(int x, ListItr position){
+
+}
+void List::insertBefore(int x, ListItr position){
+
+}
+void List::insertAtTail(int x){
+
+}
+void List::remove(int x){
+
+}
+ListItr List::find(int x){
+
+}
+int List::size(){
+
+}

@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+
+//a ^ b calculate and return
+
+int xton(int a, int b){
+  
+
+  int ans = a;
+
+  if(b > 0 ){
+    xton(a, b-1);
+    
+  }
+
+  
+  
+
+  return temp;
+}
+
+int main(){
+
+  int x, y;
+  cin >> x;
+  cin >> y;
+
+  int ans = xton(x,y);
+    
+  cout << x << " ^ " << y << " = " << ans << endl;
+
+  return 0;
+}

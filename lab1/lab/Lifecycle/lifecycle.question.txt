@@ -1,0 +1,5 @@
+
+
+Q. static variables are always in main file?
+
+Q. Why are getName() and setName() in header file and not LifeCycle files with other functions?

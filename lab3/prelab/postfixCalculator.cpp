@@ -14,6 +14,7 @@ Files : unix.questions.txt
 #include <string>
 #include <vector>
 #include <sstream>
+#include <ctype.h>
 
 #include "postfixCalculator.h"
 
@@ -30,7 +31,6 @@ void postfixCalculator::addOn(int value){
 }
 
 
-//conveting string into int... currently not working correctly for prelab.
 void postfixCalculator::addOn(string equation){
 
 	vector<string> tempVector;
@@ -47,21 +47,22 @@ void postfixCalculator::addOn(string equation){
 			word = word + equation.at(i);
 		}
 	}
-	cout << tempVector[0] << endl;
-	cout << tempVector[1] << endl;
-	cout << tempVector[2] << endl;
-	cout << tempVector[3] << endl;
-	cout << tempVector[4] << endl;
-	cout << tempVector[5] << endl;
+	// cout << tempVector[0] << endl;
+	// cout << tempVector[1] << endl;
+	// cout << tempVector[2] << endl;
+	// cout << tempVector[3] << endl;
+	// cout << tempVector[4] << endl;
+	// cout << tempVector[5] << endl;
 
 	for( int x = 0 ; x < tempVector.size() ; x++ ){
 		if( tempVector[x] != "+" && 
 			tempVector[x] != "-" && 
 			tempVector[x] != "*" &&
 			tempVector[x] != "/"){
-			int tempInput = 0;
-			stringstream num(tempVector[x]);
-			num >> tempInput;
+			int tempInput = stoi(tempVector[x]);
+
+			// stringstream num(tempVector[x]);
+			// num >> tempInput;
 			addOn(tempInput);
 		}else{
 			addOn(tempVector[x]);

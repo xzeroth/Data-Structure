@@ -1,0 +1,11 @@
+/*
+Name : Gun Ho Park
+ID : gp3dz
+Date : 09/17/2019
+Files : unix.questions.txt
+		postfixCalculator.cpp
+		testPostFixCalc.cpp
+		postfixCalculator.h
+*/
+
+Q. What is the purpose of configuring the directory? (bit confused why this is needed.)

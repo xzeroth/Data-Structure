@@ -12,6 +12,8 @@ Files : unix.questions.txt
 #include <stdlib.h>
 #include <stack>
 #include <string>
+#include <ctype.h>
+#include <vector>
 
 #include "postfixCalculator.h"
 
@@ -20,6 +22,9 @@ using namespace std;
 int main(){
 
 	postfixCalculator* cs = new postfixCalculator;
+
+
+
 
 	//Infix: ( 3 + 6 ) - ( 8 / 4 )
 	//Postfix: 3 6 + 8 4 / -
@@ -34,24 +39,27 @@ int main(){
 	// cs -> addOn("20 10 - -3 10 - - 2 -");
 	// cout << cs -> getAns() << endl << endl;
 
-	cs -> addOn(20);
-	cout << cs -> getAns() << endl;
-	cs -> addOn(10);
-	cout << cs -> getAns() << endl;
-	cs -> addOn('-');
-	cout << cs -> getAns() << endl;
-	cs -> addOn(-3);
-	cout << cs -> getAns() << endl;
-	cs -> addOn(10);
-	cout << cs -> getAns() << endl;
-	cs -> addOn('-');
-	cout << cs -> getAns() << endl;
-	cs -> addOn('-');
-	cout << cs -> getAns() << endl;
-	cs -> addOn(2);
-	cout << cs -> getAns() << endl;
-	cs -> addOn('-');
-	cout << cs -> getAns() << endl;
+	cs -> addOn("3 6 + 8 4 / -");
+	cout << cs -> getAns()<< endl<< endl;
+
+	// cs -> addOn(20);
+	// cout << cs -> getAns() << endl;
+	// cs -> addOn(10);
+	// cout << cs -> getAns() << endl;
+	// cs -> addOn('-');
+	// cout << cs -> getAns() << endl;
+	// cs -> addOn(-3);
+	// cout << cs -> getAns() << endl;
+	// cs -> addOn(10);
+	// cout << cs -> getAns() << endl;
+	// cs -> addOn('-');
+	// cout << cs -> getAns() << endl;
+	// cs -> addOn('-');
+	// cout << cs -> getAns() << endl;
+	// cs -> addOn(2);
+	// cout << cs -> getAns() << endl;
+	// cs -> addOn('-');
+	// cout << cs -> getAns() << endl;
 
 
 	// cs -> addOn(3);

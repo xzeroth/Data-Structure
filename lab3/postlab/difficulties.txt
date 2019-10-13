@@ -1,0 +1,14 @@
+/*
+Name : Gun Ho Park
+ID : gp3dz
+Date : 09/20/2019
+Files : testPostFixCalc.cpp/h
+        stackNode.cpp/h
+        stack.cpp.h
+        postfixCalculator.cpp.h
+        difficulties.txt
+*/
+
+
+Q. Difficulties.
+A. I didn't really have too much difficulties implementing stack data structure. However, when adding option to take in string gave me an error many times. First of all I can't use formatted intake "cin" and head to use "getline()". Also previous input won't let my other inputs run. So I had to use a line of code to discard all the char inputs that was already inserted.

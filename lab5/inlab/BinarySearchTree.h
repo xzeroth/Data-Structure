@@ -1,7 +1,16 @@
+/*name Gun Ho Park
+id gp3dz
+date 10/15/2019
+files binaryNode.cpp/h
+binaryNode.h
+binarysearchtree.h/cpp
+BSTPathTest.cpp
+Makefile*/
 #ifndef BST_H
 #define BST_H
 
 #include <string>
+#include <vector>
 #include "BinaryNode.h"
 
 using namespace std;
@@ -30,19 +39,26 @@ class BinarySearchTree {
 
   // pathTo finds x in the tree and returns a string representing the path it
   // took to get there.
-  string pathTo(const string& x) const;
+  string pathTo(const string& x) ;
   // find determines whether or not x exists in the tree.
-  bool find(const string& x) const;
+  bool find(const string& x) ;
   // numNodes returns the total number of nodes in the tree.
   int numNodes() const;
 
  private:
   // Declare a root node
   BinaryNode* root;
+  int nodeCounter;
 
   // private helper for remove to allow recursion over different nodes. returns
   // a BinaryNode* that is assigned to the original node.
   BinaryNode* remove(BinaryNode*& n, const string& x);
+
+
+  void insert(BinaryNode*& node, const string& x);
+  bool finda(BinaryNode*& node, const string& x, vector<string>& path);
+
+
   // min finds the string with the smallest value in a subtree.
   string min(BinaryNode* node) const;
 
@@ -53,3 +69,17 @@ class BinarySearchTree {
 };
 
 #endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+

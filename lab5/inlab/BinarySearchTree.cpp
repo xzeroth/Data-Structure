@@ -1,9 +1,25 @@
+/*name Gun Ho Park
+id gp3dz
+date 10/15/2019
+files binaryNode.cpp/h
+binaryNode.h
+binarysearchtree.h/cpp
+BSTPathTest.cpp
+Makefile*/
+
 #include "BinarySearchTree.h"
 #include <string>
+#include <vector>
 #include "BinaryNode.h"
+#include <iostream>
+
+
 using namespace std;
 
-BinarySearchTree::BinarySearchTree() { root = NULL; }
+BinarySearchTree::BinarySearchTree() { 
+	root = NULL; 
+	nodeCounter =0;
+}
 
 BinarySearchTree::~BinarySearchTree() {
   delete root;
@@ -13,25 +29,107 @@ BinarySearchTree::~BinarySearchTree() {
 // insert finds a position for x in the tree and places it there.
 void BinarySearchTree::insert(const string& x) {
   // YOUR IMPLEMENTATION GOES HERE
+  if(!find(x)){
+	insert(root, x);
+	nodeCounter = nodeCounter + 1;
+  }
+}
+
+void BinarySearchTree::insert(BinaryNode*& node, const string& x){
+	BinaryNode* tempNode = new BinaryNode;
+	tempNode -> value = x;
+
+	if(root == NULL){
+		root = tempNode;
+	}else if(node -> value > x){
+		if(node -> left != NULL){
+			insert(node->left, x);
+		}else{
+			node -> left = tempNode;
+		}
+	}else if(node -> value < x){
+		if(node -> right != NULL){
+			insert(node-> right, x);
+		}else{
+			node -> right = tempNode;
+		}
+	}
+
 }
 
 // remove finds x's position in the tree and removes it.
-void BinarySearchTree::remove(const string& x) { root = remove(root, x); }
+void BinarySearchTree::remove(const string& x) { 
+	root = remove(root, x); 
+	nodeCounter = nodeCounter - 1;
+}
 
 // pathTo finds x in the tree and returns a string representing the path it
 // took to get there.
-string BinarySearchTree::pathTo(const string& x) const {
+string BinarySearchTree::pathTo(const string& x) {
   // YOUR IMPLEMENTATION GOES HERE
+	vector<string> ansVec;
+
+	string ansString ="";
+
+	if(finda(root,x,ansVec)){
+		for(int i=0;i<ansVec.size();i++){
+			ansString = ansString + ansVec[i] + " ";
+		}
+	}
+	return ansString;
+
+}
+
+bool BinarySearchTree::finda(BinaryNode*& node, const string& x, vector<string>& path){
+
+	if(!node){
+		return false;
+	}
+
+	path.push_back(node -> value);
+
+	if(node->value == x){
+		return true;
+	}
+
+	if(finda(node->left,x,path) ||
+		finda(node->right,x,path)){
+		return true;
+	}
+
+	path.pop_back();
+	return false;
+
+
+
+
+	// if(node != NULL){
+	// 	if(x == node -> value){
+	// 		return true;
+	// 	}
+	// 	if(x < node -> value){
+	// 		return find(node -> left, x);
+	// 	}else if(x > node -> value){
+	// 		return find(node -> right, x);
+	// 	}
+	// }else {
+	// 	return false;
+	// }
 }
 
 // find determines whether or not x exists in the tree.
-bool BinarySearchTree::find(const string& x) const {
+bool BinarySearchTree::find(const string& x) {
   // YOUR IMPLEMENTATION GOES HERE
+	vector<string> randomVec;
+	return finda(root, x , randomVec);
+
+
 }
 
 // numNodes returns the total number of nodes in the tree.
 int BinarySearchTree::numNodes() const {
   // YOUR IMPLEMENTATION GOES HERE
+	return nodeCounter;
 }
 
 // private helper for remove to allow recursion over different nodes. returns
@@ -87,7 +185,7 @@ string BinarySearchTree::min(BinaryNode* node) const {
 
 // Helper function to print branches of the binary tree
 void showTrunks(Trunk* p) {
-  if (p == nullptr) return;
+  if (p == NULL) return;
   showTrunks(p->prev);
   cout << p->str;
 }
@@ -121,4 +219,6 @@ void BinarySearchTree::printTree(BinaryNode* root, Trunk* prev, bool isRight) {
   printTree(root->left, trunk, false);
 }
 
-void BinarySearchTree::printTree() { printTree(root, NULL, false); }
+void BinarySearchTree::printTree() { 
+	printTree(root, NULL, false); 
+}
